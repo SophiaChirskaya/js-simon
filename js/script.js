@@ -18,3 +18,15 @@ const updateCountdown = () => {
 const intervalId = setInterval(updateCountdown, 1000);
 
 // genero i numeri randomici
+function generaNumeriCasuali() {
+    const numeriCasuali = new Set();
+
+    while (numeriCasuali.size < 5) {
+        const numero = Math.floor(Math.random() * 50) + 1;
+        numeriCasuali.add(numero);
+    }
+
+    return Array.from(numeriCasuali);
+}
+
+console.log(generaNumeriCasuali());
