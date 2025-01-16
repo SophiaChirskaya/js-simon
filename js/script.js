@@ -9,51 +9,36 @@ const listNumber = document.getElementById('numbers-list');
 const messaggio = document.getElementById('message');
 
 
-// creo contdowm
-let countdown = 5;
-// funzione per aggiornare il countdown
-const updateCountdown = () => {
-    console.log(countdown);
-    if (countdown === 0) {
-        console.log("Tempo scaduto!");
-        clearInterval(intervalId);
-    } else {
-        countdown--;
-
-    }
-    
-}
-
-const intervalId = setInterval(updateCountdown, 1000);
-countdown.innerHTML = countdown;
-
-
-
+// Genero gli elementi della lista
 // genero i numeri randomici
-function generaNumeriCasuali() {
-    const numeriCasuali = new Set();
+const number = generateRandomNumbers(5, 1, 50);
+console.log('I numeri da memorizzare',number);
 
-    while (numeriCasuali.size < 5) {
-        const numero = Math.floor(Math.random() * 50) + 1;
-        numeriCasuali.add(numero);
+// Variabile di accumulo
+let items = '';
+
+for (let i = 0; i < 5; i++) {
+    items +=`<li>${number[i]}$<li>`
+}
+
+listNumber.innerHTML = items;
+
+// Countdown
+
+// FUNCTIONS
+// per generare i numeri randomici
+
+function randomNumberRange(min, max){
+    return Math.floor(Math.random() + (max - min + 1) + min);
+}
+
+// per generare numeri casuali unici
+function generateRandomNumbers(totalNumbers, min, max){
+    // creo un array vuoto
+    const randomNumbers = [];
+    // ciclo per creare 'N' numeri casuali uunici
+    for (let i = 0; randomNumbers.length < totalNumbers; index++) {
+        const enumerIesimo = randomNumberRange(min, max);
+        
     }
-
-    return Array.from(numeriCasuali);
-}
-
-console.log(generaNumeriCasuali());
-
-// confronto i numeri inseriti con i numeri visualizzati
-function name(params) {
-    
-}
-
-// assegno le variabili di input
-const inputUser = document.querySelectorAll(".form-control")
-console.log(inputUser);
-
-// per evitare che dati inseriti vengono spediti
-const form = document.querySelector("form");
-form.addEventListener("btn btn-primary mt-2 d-block mx-auto", (Event)); {
-    Event.preventDefault();
 }
