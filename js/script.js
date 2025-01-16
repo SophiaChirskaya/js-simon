@@ -1,6 +1,13 @@
-// assegno le variabili di input
-const inputUser = document.querySelectorAll(".form-control")
-console.log(inputUser);
+// Elementi del DOM
+
+const form = document.getElementById('answers-form');
+const inputNumber = document.querySelectorAll ('#input-group input');
+const button = document.querySelector('button');
+const countdown = document.getElementById('countdown');
+const instructions = document.getElementById('instructions');
+const listNumber = document.getElementById('numbers-list');
+const messaggio = document.getElementById('message');
+
 
 // creo contdowm
 let countdown = 5;
@@ -12,10 +19,15 @@ const updateCountdown = () => {
         clearInterval(intervalId);
     } else {
         countdown--;
+
     }
+    
 }
 
 const intervalId = setInterval(updateCountdown, 1000);
+countdown.innerHTML = countdown;
+
+
 
 // genero i numeri randomici
 function generaNumeriCasuali() {
@@ -30,3 +42,18 @@ function generaNumeriCasuali() {
 }
 
 console.log(generaNumeriCasuali());
+
+// confronto i numeri inseriti con i numeri visualizzati
+function name(params) {
+    
+}
+
+// assegno le variabili di input
+const inputUser = document.querySelectorAll(".form-control")
+console.log(inputUser);
+
+// per evitare che dati inseriti vengono spediti
+const form = document.querySelector("form");
+form.addEventListener("btn btn-primary mt-2 d-block mx-auto", (Event)); {
+    Event.preventDefault();
+}
