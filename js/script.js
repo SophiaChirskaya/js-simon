@@ -24,7 +24,29 @@ for (let i = 0; i < 5; i++) {
 listNumber.innerHTML = items;
 
 // Countdown
+let seconds = 10;
 
+// Stampo lo scorrimento secondi
+countDown.innerHTML = seconds;
+
+const contoAllaRovescia = setInterval(() => {
+    if (seconds = 0) {
+        clearInterval(contoAllaRovescia);
+        // modifico le istruzioni utente
+        instructions.innerHTML = "Inserisci i numeri";
+        // elimino il numero una volta che i countdown arriva a 0
+        countDown.innerHTML = '';
+        // nascondo lista numeri
+        listNumber.classList.add ('d-none');
+        // mostro il form per l'input utente
+        form.classList.remove('d-none');
+    }else{
+        // diminuisco il conto di 1
+        seconds = seconds - 1;
+        // mostro l'output di countdown
+        countDown.innerHTML = seconds;
+    }
+}, 1000);
 // FUNCTIONS
 // per generare i numeri randomici
 
