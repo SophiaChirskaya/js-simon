@@ -83,6 +83,19 @@ form.addEventListener('submit', (event) => {
 
         // DEBUG
         console.log("Hai indovinato", numeriIndovinati);
+
+        // tutti i N sono stati indovinati se entrambi gli array sono vuoti
+
+        if(numeriIndovinati > 0){
+
+            messaggio.innerHTML = `${numeriIndovinatimex}`;
+            
+        }else{
+            messaggio.innerHTML = "Non hai indovinato nessun numero";
+        }
+
+        button.disabled = true;
+        form.requestFullscreen();
    }
 
 
@@ -100,8 +113,30 @@ function generateRandomNumbers(totalNumbers, min, max){
     // creo un array vuoto
     const randomNumbers = [];
     // ciclo per creare 'N' numeri casuali uunici
-    for (let i = 0; randomNumbers.length < totalNumbers; index++) {
+    for (let i = 0; randomNumbers.length < totalNumbers; i++) {
         const numerIesimo = randomNumberRange(min, max);
+
+        // verifico se il numero è già presente nell'array
+        if(!randomNumbers.includes(numerIesimo)){
+            // se non è presente lo aggiungo all'array
+            randomNumbers.push(numerIesimo);
+        }
         
     }
+    return randomNumbers;
+}
+
+// Function per validare l'array utente rispetto a quello generato
+function validateNumbers (arraycheck, arrayverify){
+    const result = [];
+
+    for (let i = 0; i < arraycheck.length; i++) {
+        const item = arraycheck[i];
+
+        if (arrayverify.includes(item)){
+            result.push(item);
+        }
+        
+    }
+    return result;
 }
