@@ -3,7 +3,7 @@
 const form = document.getElementById('answers-form');
 const inputNumber = document.querySelectorAll ('#input-group input');
 const button = document.querySelector('button');
-const countdown = document.getElementById('countdown');
+const countDown = document.getElementById('countdown');
 const instructions = document.getElementById('instructions');
 const listNumber = document.getElementById('numbers-list');
 const messaggio = document.getElementById('message');
@@ -47,6 +47,35 @@ const contoAllaRovescia = setInterval(() => {
         countDown.innerHTML = seconds;
     }
 }, 1000);
+
+// Gestisco il form
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    // creo un array vuoto per raccogliere numeri utente
+    const numeriscelti = []
+
+    // salvo la variabile N doppio inizialmente falsa
+    let duplicato = false
+    
+    // creo il ciclo per ricavare i valori input
+    for (let i = 0; i < inputNumber.length; i++) {
+        const numberValue = parseInt(inputNumber[i].value.trim());
+
+        // controllo se il N è già presente nel array
+        if(numeriscelti.includes(numberValue)){
+            
+            // modifica il valore duplicato in vero
+            duplicato = true;
+            break;
+            
+        }
+        
+    }
+
+
+} )
+
 // FUNCTIONS
 // per generare i numeri randomici
 
@@ -60,7 +89,7 @@ function generateRandomNumbers(totalNumbers, min, max){
     const randomNumbers = [];
     // ciclo per creare 'N' numeri casuali uunici
     for (let i = 0; randomNumbers.length < totalNumbers; index++) {
-        const enumerIesimo = randomNumberRange(min, max);
+        const numerIesimo = randomNumberRange(min, max);
         
     }
 }
