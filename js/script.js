@@ -67,11 +67,23 @@ form.addEventListener('submit', (event) => {
             
             // modifica il valore duplicato in vero
             duplicato = true;
-            break;
-            
+            break;  
         }
-        
+        // lo inserisco nell'array numeriscelti
+        numeriscelti.push(numberValue)
     }
+    console.log("Numeri utente", numeriscelti);
+
+    if(duplicato){
+        messaggio.innerHTML = "I numeri non vanno ripetuti!"
+        
+    }else{
+        const numeriIndovinati = validateNumbers(numeriscelti, number);
+        const numeriIndovinatimex = `Hai indovinato ${numeriIndovinati.length} numeri: ${numeriIndovinati.join(' - ')}`
+
+        // DEBUG
+        console.log("Hai indovinato", numeriIndovinati);
+   }
 
 
 } )
